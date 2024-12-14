@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fff;
+    min-width: 0;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    background-color: #0e844d;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+    color: #fff;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.sidebar-logo a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+#sidebar.expand .sidebar-logo,
+#sidebar.expand a.sidebar-link span {
+    animation: fadeIn .25s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Sidebar Links */
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .75rem 1.75rem;
+    color: #fff;
+    display: block;
+    font-size: 1rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+a.sidebar-link:hover {
+    background-color: #1d50aa;
+    border-left: 3px solid #4a8bf7;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+/* Dropdowns */
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #2f3b52;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+/* Collapse Arrow Styles */
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 0 2rem rgba(33, 37, 41, .1);
+    padding: 1rem 2rem;
+}
+
+.navbar-expand .navbar-collapse {
+    min-width: 200px;
+}
+
+/* Avatar */
+.avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+/* Cards */
+.card {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card .card-body {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Tables */
+.table thead {
+    background-color: #f1f1f1;
+}
+
+.table th {
+    border: none;
+}
+
+.table td {
+    border: none;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    padding: 1rem 2rem;
+    box-shadow: 0 -1rem 1rem -1rem rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+    color: #6c757d;
+}
+
+.footer .list-inline-item:not(:last-child) {
+    margin-right: 1rem;
+}
+
+#salesChart {
+    min-height: 295px;
+}
